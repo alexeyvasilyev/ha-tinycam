@@ -156,6 +156,3 @@ and empty-password authentication. Tests do not contact a real tinyCam server.
 This integration implements the endpoints documented at
 [alexeyvasilyev/tinycam-api](https://github.com/alexeyvasilyev/tinycam-api).
 
-## License
-
-MIT
