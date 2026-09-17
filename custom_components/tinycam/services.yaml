@@ -1,0 +1,87 @@
+ptz_move:
+  target:
+    entity:
+      domain: camera
+      integration: tinycam
+  fields:
+    pan:
+      example: 50
+      default: 0
+      selector:
+        number:
+          min: -100
+          max: 100
+          mode: slider
+    tilt:
+      example: 50
+      default: 0
+      selector:
+        number:
+          min: -100
+          max: 100
+          mode: slider
+    zoom:
+      example: 0
+      default: 0
+      selector:
+        number:
+          min: -100
+          max: 100
+          mode: slider
+
+ptz_stop:
+  target:
+    entity:
+      domain: camera
+      integration: tinycam
+
+ptz_home:
+  target:
+    entity:
+      domain: camera
+      integration: tinycam
+
+ptz_goto_preset:
+  target:
+    entity:
+      domain: camera
+      integration: tinycam
+  fields:
+    preset:
+      required: true
+      example: 1
+      selector:
+        number:
+          min: 1
+          max: 255
+          mode: box
+
+ptz_save_preset:
+  target:
+    entity:
+      domain: camera
+      integration: tinycam
+  fields:
+    preset:
+      required: true
+      example: 1
+      selector:
+        number:
+          min: 1
+          max: 255
+          mode: box
+
+set_notifications:
+  target:
+    device:
+      integration: tinycam
+  fields:
+    state:
+      required: true
+      example: true
+      selector:
+        boolean:
+    tag:
+      example: "Office"
+      selector:
+        text:

@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to tinyCam Monitor",
+        "description": "Enter the connection details of the device running tinyCam Monitor PRO with its web server enabled.",
+        "data": {
+          "host": "Host or IP address",
+          "port": "Port",
+          "username": "Username",
+          "password": "Password",
+          "use_ssl": "Use HTTPS",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid username or password",
+      "cannot_connect": "Could not connect to the tinyCam web server",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This tinyCam server is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "tinyCam Monitor options",
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "motion": {
+        "name": "Motion"
+      }
+    },
+    "sensor": {
+      "cpu_usage": { "name": "CPU usage" },
+      "cpu_frequency": { "name": "CPU frequency" },
+      "memory_used": { "name": "Memory used" },
+      "memory_available": { "name": "Memory available" },
+      "battery_level": { "name": "Battery level" },
+      "uptime": { "name": "Uptime" },
+      "network_in": { "name": "Network in" },
+      "network_out": { "name": "Network out" },
+      "space_used": { "name": "Storage used" },
+      "space_available": { "name": "Storage available" },
+      "live_connections": { "name": "Live connections" }
+    },
+    "switch": {
+      "background_mode": { "name": "Background mode" },
+      "power_safe_mode": { "name": "Power safe mode" },
+      "notifications": { "name": "Notifications" }
+    },
+    "select": {
+      "stream_profile": {
+        "name": "Stream profile",
+        "state": {
+          "main": "Main",
+          "sub": "Sub",
+          "auto": "Auto"
+        }
+      },
+      "led_mode": {
+        "name": "LED mode",
+        "state": {
+          "on": "On",
+          "off": "Off",
+          "auto": "Auto"
+        }
+      }
+    },
+    "button": {
+      "reboot": { "name": "Reboot device" }
+    },
+    "event": {
+      "detection": { "name": "Detection" }
+    }
+  },
+  "services": {
+    "ptz_move": {
+      "name": "PTZ move",
+      "description": "Starts continuous pan/tilt/zoom motion. Send 0 for all axes, or call ptz_stop, to stop.",
+      "fields": {
+        "pan": { "name": "Pan", "description": "Pan speed, -100 (left) to 100 (right)." },
+        "tilt": { "name": "Tilt", "description": "Tilt speed, -100 (down) to 100 (up)." },
+        "zoom": { "name": "Zoom", "description": "Zoom speed, -100 (out) to 100 (in)." }
+      }
+    },
+    "ptz_stop": {
+      "name": "PTZ stop",
+      "description": "Stops any ongoing pan/tilt/zoom motion."
+    },
+    "ptz_home": {
+      "name": "PTZ home",
+      "description": "Moves the camera to its home position."
+    },
+    "ptz_goto_preset": {
+      "name": "PTZ go to preset",
+      "description": "Moves the camera to a saved preset position.",
+      "fields": {
+        "preset": { "name": "Preset", "description": "Preset position number." }
+      }
+    },
+    "ptz_save_preset": {
+      "name": "PTZ save preset",
+      "description": "Saves the camera's current position as a preset.",
+      "fields": {
+        "preset": { "name": "Preset", "description": "Preset position number." }
+      }
+    },
+    "set_notifications": {
+      "name": "Set notifications",
+      "description": "Turns tinyCam notifications on or off, optionally for a specific camera tag.",
+      "fields": {
+        "state": { "name": "State", "description": "Turn notifications on or off." },
+        "tag": { "name": "Tag", "description": "Only affect cameras with this tag." }
+      }
+    }
+  }
+}
