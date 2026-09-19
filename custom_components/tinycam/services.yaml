@@ -72,15 +72,20 @@ ptz_save_preset:
           mode: box
 
 set_notifications:
-  target:
-    device:
-      integration: tinycam
   fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: tinycam
+          multiple: true
+
     state:
       required: true
       example: true
       selector:
         boolean:
+
     tag:
       example: "Office"
       selector:
